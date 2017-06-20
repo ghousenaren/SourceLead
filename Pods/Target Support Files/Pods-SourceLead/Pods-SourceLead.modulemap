@@ -1,0 +1,6 @@
+framework module Pods_SourceLead {
+  umbrella header "Pods-SourceLead-umbrella.h"
+
+  export *
+  module * { export * }
+}
