@@ -35,6 +35,7 @@
 		642AD4581EF9095F000679F8 /* WebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642AD4571EF9095F000679F8 /* WebServices.swift */; };
 		642AD4591EF922DD000679F8 /* WebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642AD4571EF9095F000679F8 /* WebServices.swift */; };
 		642AD45A1EF922DD000679F8 /* WebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642AD4571EF9095F000679F8 /* WebServices.swift */; };
+		646B92F31EFA5EB5001ACCFB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646B92F21EFA5EB5001ACCFB /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		48F1C2A61EE66C0A00B7637B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6208E44DCDA982CAC976C15B /* Pods-SourceLead-SourceLeadTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SourceLead-SourceLeadTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SourceLead-SourceLeadTests/Pods-SourceLead-SourceLeadTests.debug.xcconfig"; sourceTree = "<group>"; };
 		642AD4571EF9095F000679F8 /* WebServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebServices.swift; path = WebServices/WebServices.swift; sourceTree = "<group>"; };
+		646B92F21EFA5EB5001ACCFB /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		85FE918F7FCA9E2412E1F08F /* libPods-SourceLeadUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SourceLeadUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -174,6 +176,7 @@
 		484E1AB71EDEF16E0095052A /* SourceLead */ = {
 			isa = PBXGroup;
 			children = (
+				646B92F11EFA5EA5001ACCFB /* Utilities */,
 				642AD4541EF9057F000679F8 /* WebServices */,
 				480D3BB31EDFD22A00545567 /* Views */,
 				480D3BB11EDFD1DA00545567 /* Models */,
@@ -222,6 +225,14 @@
 				642AD4571EF9095F000679F8 /* WebServices.swift */,
 			);
 			name = WebServices;
+			sourceTree = "<group>";
+		};
+		646B92F11EFA5EA5001ACCFB /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				646B92F21EFA5EB5001ACCFB /* Constants.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		B5F8F03BE350A01EAEF19A23 /* Frameworks */ = {
@@ -432,6 +443,7 @@
 				480D3BBD1EE01B4500545567 /* SignUpViewController.swift in Sources */,
 				642AD4581EF9095F000679F8 /* WebServices.swift in Sources */,
 				48BEC6E41EEA6C8100DEBAD0 /* ResetPasswordViewController.swift in Sources */,
+				646B92F31EFA5EB5001ACCFB /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

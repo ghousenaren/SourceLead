@@ -72,10 +72,32 @@ class ForgotViewController: UIViewController {
 extension ForgotViewController {
 
     func forGotAPI() {
-        let jsonPostString = "email" + userIdTextField.text!
-        let jsonData = jsonPostString.data(using: String.Encoding.utf8)
-        let url = "http://192.168.1.48:8080/sourcelead/resetPasswordWithUserName"
-        let headers : [String : AnyObject] = ["Content-Type" : "application/json" as AnyObject , "Authorization" : "" as AnyObject]
+        //let jsonPostString = "email:" + email.text!
+        //let jsonData = jsonPostString.data(using: String.Encoding.utf8)
+        let parameter : [String : String] = [
+            "email" : email.text!,
+        ]
+        let url = BASE_URL +  "resetPasswordWithUserName"
+
+        do {
+            let data = try JSONSerialization.data(withJSONObject:parameter, options:[])
+            let dataString = String(data: data, encoding: String.Encoding.utf8)!
+            print(dataString)
+            WebServices.sharedInstance.makeAPICall(url: url, httpBody: data) { (resultJson) in
+                print(resultJson)
+                let dict = WebServices.sharedInstance.convertToDictionary(text : resultJson)
+                print(dict)
+            }
+        } catch {
+            print("JSON serialization failed:  \(error)")
+            showAlertMessage(message: "Error in sending data")
+            return
+        }
+        
+
+     
+        /*
+        let headers : [String : AnyObject] = ["Content-Type" : "application/json" as AnyObject]
         WebServices.sharedInstance.performApiCallWithURLString(urlString: url, methodName: "POST", headers: headers, parameters: nil, httpBody: jsonData, withMessage: "Reseting Password...", alertMessage: "Please check your device settings to ensure you have a working internet connection.", fromView: self.view, successHandler:  { json, response in
             //print("JSON IS : \(json)")
             if response?.statusCode == 200 {
@@ -85,8 +107,8 @@ extension ForgotViewController {
             }
             
         }, failureHandler: { response, error in
-            //print("ERROR IS : \(error)")
-        })
+            print("ERROR IS : \(error)")
+        })*/
     }
 
 

@@ -76,7 +76,7 @@ class WebServices {
         
         session.dataTask(with: request as URLRequest, completionHandler: {
             ( data, response, error) in
-            print("Error is : \(error?.localizedDescription)")
+           // print("Error is : \(error?.localizedDescription)")
             DispatchQueue.main.async {
                 if let _ = fromView {
                     hideProgressHUD()
@@ -91,12 +91,19 @@ class WebServices {
                         return
                     }
                     do {
-                        let json = try JSONSerialization.jsonObject(with: data!, options: .allowFragments)
-                        successHandler(json as AnyObject?, httpResponse)
-                    } catch let error as NSError  {
+                        /*if let returnData = String(data: data!, encoding: .utf8) {
+                        //let json = try JSONSerialization.jsonObject(with: strData!, options: .allowFragments)
+                            successHandler(returnData as AnyObject?, httpResponse)
+                        }else {
+                            
+                        }*/
+                        if let datastring = String(data: data!, encoding: String.Encoding.utf8) {
+                            successHandler(datastring as AnyObject?, httpResponse)
+                        }
+                    } /*catch let error as NSError  {
                         print("Could not save \(error), \(error.userInfo)")
                         successHandler(nil, httpResponse)
-                    }
+                    }*/
                 }
               }
             }).resume()
@@ -137,5 +144,55 @@ class WebServices {
         return isReachable
     }
 
+    func makeAPICall(url : String, httpBody: Data?, completion: @escaping (String)->())  {
+        var config                              :URLSessionConfiguration!
+        var urlSession                          :URLSession!
+        
+        config = URLSessionConfiguration.default
+        urlSession = URLSession(configuration: config)
+        
+        let HTTPHeaderField_ContentType         = "Content-Type"
+        let ContentType_ApplicationJson         = "application/json"
+        let HTTPMethod_Get                      = "POST"
+        
+        let callURL = URL.init(string: url)
+        var request = URLRequest.init(url: callURL!)
+        request.timeoutInterval = 60.0 // TimeoutInterval in Second
+        request.cachePolicy = URLRequest.CachePolicy.reloadIgnoringLocalCacheData
+        request.addValue(ContentType_ApplicationJson, forHTTPHeaderField: HTTPHeaderField_ContentType)
+        request.httpMethod = HTTPMethod_Get
+        if let httpBody = httpBody {
+            request.httpBody = httpBody as Data//httpBody.dataUsingEncoding(NSUTF8StringEncoding)
+        }
+        
+        let dataTask = urlSession.dataTask(with: request) { (data,response,error) in
+            if error != nil{
+                return
+            }
+            if let datastring = String(data: data!, encoding: String.Encoding.utf8) {
+               //let newString = self.JSONString(str: datastring)
+                completion(datastring)
+            }
+            /*do {
+                let resultJson = try JSONSerialization.jsonObject(with: data!, options: []) as? [String:AnyObject] //Array<Dictionary<String, String>>
+                print(resultJson)
+                completion(resultJson!)
+            } catch {
+                print("Error -> \(error)")
+            }*/
+        }
+        dataTask.resume()
+    }
+    
+    func convertToDictionary(text: String) -> [String: Any]? {
+        if let data = text.data(using: .utf8) {
+            do {
+                return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        return nil
+    }
 }
 
