@@ -4,6 +4,7 @@
 //  Created by Koti on 6/7/16.
 //  Copyright © 2016 V-Soft. All rights reserved.
 //
+//Webservice TEsting Git
 
  import Foundation
 import MBProgressHUD
@@ -172,8 +173,9 @@ class WebServices {
                 return
             }
             if let datastring = String(data: data!, encoding: String.Encoding.utf8) {
-               //let newString = self.JSONString(str: datastring)
-                completion(datastring)
+                var newString = datastring.replacingOccurrences(of: "\"", with: "")
+                newString = datastring.replacingOccurrences(of: "\\", with: "\"")
+                completion(newString)
             }
             /*do {
                 let resultJson = try JSONSerialization.jsonObject(with: data!, options: []) as? [String:AnyObject] //Array<Dictionary<String, String>>
