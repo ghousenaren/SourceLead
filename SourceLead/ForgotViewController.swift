@@ -66,12 +66,7 @@ class ForgotViewController: UIViewController {
             }
         }
     }
-    
-    
-    
-    
-    
-    
+   
 }
 
 extension ForgotViewController {
