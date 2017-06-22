@@ -4,6 +4,7 @@
 //  Created by Koti on 6/7/16.
 //  Copyright © 2016 V-Soft. All rights reserved.
 //
+//Webservice TEsting Git
 
  import Foundation
 import MBProgressHUD
@@ -163,9 +164,8 @@ class WebServices {
                 return
             }
             if let datastring = String(data: data!, encoding: String.Encoding.utf8) {
-               var newString = datastring.replacingOccurrences(of: "\"", with: "")
-               newString = datastring.replacingOccurrences(of: "\\", with: "\"")
- 
+                var newString = datastring.replacingOccurrences(of: "\"", with: "")
+                newString = datastring.replacingOccurrences(of: "\\", with: "\"")
                 completion(newString)
             }
             /*do {
