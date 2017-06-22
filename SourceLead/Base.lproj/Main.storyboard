@@ -413,6 +413,7 @@
                     </view>
                     <connections>
                         <outlet property="email" destination="I1c-5V-ooL" id="6ru-Ww-MLi"/>
+                        <segue destination="TAW-TS-T1E" kind="show" identifier="showResetPasswordSegue" id="pUC-uQ-1kV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="le9-rp-h1D" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1318,7 +1319,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="2BY-t7-4Eo" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nKY-vj-4Dg">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="nKY-vj-4Dg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1336,7 +1337,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TEZ-H8-lnO" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="CDV-4c-dia">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="CDV-4c-dia">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

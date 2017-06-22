@@ -164,6 +164,7 @@ class WebServices {
                 return
             }
             if let datastring = String(data: data!, encoding: String.Encoding.utf8) {
+                
                 var newString = datastring.replacingOccurrences(of: "\"", with: "")
                 newString = datastring.replacingOccurrences(of: "\\", with: "\"")
                 completion(newString)

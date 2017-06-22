@@ -36,6 +36,7 @@
 		642AD45A1EF922DD000679F8 /* WebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642AD4571EF9095F000679F8 /* WebServices.swift */; };
 		646B92F31EFA5EB5001ACCFB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646B92F21EFA5EB5001ACCFB /* Constants.swift */; };
 		646C4F531EFB92AA00FA4C63 /* UsefulExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646C4F521EFB92AA00FA4C63 /* UsefulExtensions.swift */; };
+		646C4F551EFBE6B600FA4C63 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646C4F541EFBE6B600FA4C63 /* Global.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		642AD4571EF9095F000679F8 /* WebServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebServices.swift; path = WebServices/WebServices.swift; sourceTree = "<group>"; };
 		646B92F21EFA5EB5001ACCFB /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		646C4F521EFB92AA00FA4C63 /* UsefulExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsefulExtensions.swift; sourceTree = "<group>"; };
+		646C4F541EFBE6B600FA4C63 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		85FE918F7FCA9E2412E1F08F /* libPods-SourceLeadUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SourceLeadUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -229,6 +231,7 @@
 		646B92F11EFA5EA5001ACCFB /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				646C4F541EFBE6B600FA4C63 /* Global.swift */,
 				646C4F521EFB92AA00FA4C63 /* UsefulExtensions.swift */,
 				646B92F21EFA5EB5001ACCFB /* Constants.swift */,
 			);
@@ -443,6 +446,7 @@
 				480D3BBD1EE01B4500545567 /* SignUpViewController.swift in Sources */,
 				642AD4581EF9095F000679F8 /* WebServices.swift in Sources */,
 				48BEC6E41EEA6C8100DEBAD0 /* ResetPasswordViewController.swift in Sources */,
+				646C4F551EFBE6B600FA4C63 /* Global.swift in Sources */,
 				646B92F31EFA5EB5001ACCFB /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

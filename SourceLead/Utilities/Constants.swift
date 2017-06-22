@@ -8,4 +8,7 @@
 
 import Foundation
 
+//============ CONSTANT DECLARATION
 let BASE_URL = "http://qa2.sourcelead.net/sourcelead/"
+
+
