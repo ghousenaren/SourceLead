@@ -91,19 +91,12 @@ class WebServices {
                         return
                     }
                     do {
-                        /*if let returnData = String(data: data!, encoding: .utf8) {
-                        //let json = try JSONSerialization.jsonObject(with: strData!, options: .allowFragments)
-                            successHandler(returnData as AnyObject?, httpResponse)
-                        }else {
-                            
-                        }*/
-                        if let datastring = String(data: data!, encoding: String.Encoding.utf8) {
-                            successHandler(datastring as AnyObject?, httpResponse)
-                        }
-                    } /*catch let error as NSError  {
+                        let json = try JSONSerialization.jsonObject(with: data!, options: .allowFragments)
+                            successHandler(json as AnyObject?, httpResponse)
+                    }catch let error as NSError  {
                         print("Could not save \(error), \(error.userInfo)")
                         successHandler(nil, httpResponse)
-                    }*/
+                    }
                 }
               }
             }).resume()
@@ -144,7 +137,7 @@ class WebServices {
         return isReachable
     }
 
-    func makeAPICall(url : String, httpBody: Data?, completion: @escaping (String)->())  {
+     func makeAPICall(url : String, httpBody: Data?, completion: @escaping (String)->())  {
         var config                              :URLSessionConfiguration!
         var urlSession                          :URLSession!
         
@@ -165,15 +158,15 @@ class WebServices {
             request.httpBody = httpBody as Data//httpBody.dataUsingEncoding(NSUTF8StringEncoding)
         }
         
-        
-        
         let dataTask = urlSession.dataTask(with: request) { (data,response,error) in
             if error != nil{
                 return
             }
             if let datastring = String(data: data!, encoding: String.Encoding.utf8) {
-               //let newString = self.JSONString(str: datastring)
-                completion(datastring)
+               var newString = datastring.replacingOccurrences(of: "\"", with: "")
+               newString = datastring.replacingOccurrences(of: "\\", with: "\"")
+ 
+                completion(newString)
             }
             /*do {
                 let resultJson = try JSONSerialization.jsonObject(with: data!, options: []) as? [String:AnyObject] //Array<Dictionary<String, String>>
@@ -196,5 +189,6 @@ class WebServices {
         }
         return nil
     }
+    
 }
 

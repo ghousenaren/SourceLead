@@ -23,7 +23,6 @@
 		484E1AC31EDEF16E0095052A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 484E1AC11EDEF16E0095052A /* LaunchScreen.storyboard */; };
 		484E1ACE1EDEF16E0095052A /* SourceLeadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484E1ACD1EDEF16E0095052A /* SourceLeadTests.swift */; };
 		484E1AD91EDEF16E0095052A /* SourceLeadUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484E1AD81EDEF16E0095052A /* SourceLeadUITests.swift */; };
-		48BEC6A61EE9346600DEBAD0 /* UsefulExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BEC6A51EE9346600DEBAD0 /* UsefulExtensions.swift */; };
 		48BEC6A81EE9415300DEBAD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48BEC6A71EE9415300DEBAD0 /* Assets.xcassets */; };
 		48BEC6E41EEA6C8100DEBAD0 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BEC6E31EEA6C8100DEBAD0 /* ResetPasswordViewController.swift */; };
 		48BEC6E51EEA6C8100DEBAD0 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BEC6E31EEA6C8100DEBAD0 /* ResetPasswordViewController.swift */; };
@@ -36,6 +35,7 @@
 		642AD4591EF922DD000679F8 /* WebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642AD4571EF9095F000679F8 /* WebServices.swift */; };
 		642AD45A1EF922DD000679F8 /* WebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642AD4571EF9095F000679F8 /* WebServices.swift */; };
 		646B92F31EFA5EB5001ACCFB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646B92F21EFA5EB5001ACCFB /* Constants.swift */; };
+		646C4F531EFB92AA00FA4C63 /* UsefulExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646C4F521EFB92AA00FA4C63 /* UsefulExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,7 +77,6 @@
 		484E1AD41EDEF16E0095052A /* SourceLeadUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SourceLeadUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		484E1AD81EDEF16E0095052A /* SourceLeadUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceLeadUITests.swift; sourceTree = "<group>"; };
 		484E1ADA1EDEF16E0095052A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		48BEC6A51EE9346600DEBAD0 /* UsefulExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsefulExtensions.swift; sourceTree = "<group>"; };
 		48BEC6A71EE9415300DEBAD0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		48BEC6E31EEA6C8100DEBAD0 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		48EA1B801EEFB0C4003B94B1 /* firew11.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = firew11.gif; sourceTree = "<group>"; };
@@ -85,6 +84,7 @@
 		6208E44DCDA982CAC976C15B /* Pods-SourceLead-SourceLeadTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SourceLead-SourceLeadTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SourceLead-SourceLeadTests/Pods-SourceLead-SourceLeadTests.debug.xcconfig"; sourceTree = "<group>"; };
 		642AD4571EF9095F000679F8 /* WebServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebServices.swift; path = WebServices/WebServices.swift; sourceTree = "<group>"; };
 		646B92F21EFA5EB5001ACCFB /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		646C4F521EFB92AA00FA4C63 /* UsefulExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsefulExtensions.swift; sourceTree = "<group>"; };
 		85FE918F7FCA9E2412E1F08F /* libPods-SourceLeadUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SourceLeadUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -120,7 +120,6 @@
 				484E1ABA1EDEF16E0095052A /* Welcome.swift */,
 				48BEC6E31EEA6C8100DEBAD0 /* ResetPasswordViewController.swift */,
 				484E1AB81EDEF16E0095052A /* AppDelegate.swift */,
-				48BEC6A51EE9346600DEBAD0 /* UsefulExtensions.swift */,
 				48BEC6A71EE9415300DEBAD0 /* Assets.xcassets */,
 				480D3BB41EDFD26900545567 /* LoginViewController.swift */,
 				480D3BB81EE0115200545567 /* ForgotViewController.swift */,
@@ -230,6 +229,7 @@
 		646B92F11EFA5EA5001ACCFB /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				646C4F521EFB92AA00FA4C63 /* UsefulExtensions.swift */,
 				646B92F21EFA5EB5001ACCFB /* Constants.swift */,
 			);
 			path = Utilities;
@@ -438,7 +438,7 @@
 				480D3BB51EDFD26900545567 /* LoginViewController.swift in Sources */,
 				480D3BB91EE0115200545567 /* ForgotViewController.swift in Sources */,
 				484E1ABB1EDEF16E0095052A /* Welcome.swift in Sources */,
-				48BEC6A61EE9346600DEBAD0 /* UsefulExtensions.swift in Sources */,
+				646C4F531EFB92AA00FA4C63 /* UsefulExtensions.swift in Sources */,
 				484E1AB91EDEF16E0095052A /* AppDelegate.swift in Sources */,
 				480D3BBD1EE01B4500545567 /* SignUpViewController.swift in Sources */,
 				642AD4581EF9095F000679F8 /* WebServices.swift in Sources */,

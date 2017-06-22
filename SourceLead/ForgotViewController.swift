@@ -74,12 +74,18 @@ extension ForgotViewController {
     func forGotAPI() {
         //let jsonPostString = "email:" + email.text!
         //let jsonData = jsonPostString.data(using: String.Encoding.utf8)
-        let parameter : [String : String] = [
+        
+        /*let parameter : [String : String] = [
             "email" : email.text!,
         ]
-        let url = BASE_URL +  "resetPasswordWithUserName"
+        */
+        let parameter : [String : String] = [
+            "name": "morpheus",
+            "job": "leader"
+        ]
+        let url = "https://reqres.in/api/users" // BASE_URL +  "resetPasswordWithUserName"
 
-        do {
+        /*do {
             let data = try JSONSerialization.data(withJSONObject:parameter, options:[])
             let dataString = String(data: data, encoding: String.Encoding.utf8)!
             print(dataString)
@@ -92,23 +98,29 @@ extension ForgotViewController {
             print("JSON serialization failed:  \(error)")
             showAlertMessage(message: "Error in sending data")
             return
-        }
+        }*/
         
-
-     
-        /*
+        var data : Data
+        do {
+            data = try JSONSerialization.data(withJSONObject:parameter, options:[])
+            
+        }catch {
+            print("JSON serialization failed:  \(error)")
+            showAlertMessage(message: "Error in sending data")
+            return
+        }
         let headers : [String : AnyObject] = ["Content-Type" : "application/json" as AnyObject]
-        WebServices.sharedInstance.performApiCallWithURLString(urlString: url, methodName: "POST", headers: headers, parameters: nil, httpBody: jsonData, withMessage: "Reseting Password...", alertMessage: "Please check your device settings to ensure you have a working internet connection.", fromView: self.view, successHandler:  { json, response in
+        WebServices.sharedInstance.performApiCallWithURLString(urlString: url, methodName: "POST", headers: headers, parameters: nil, httpBody: data, withMessage: "Reseting Password...", alertMessage: "Please check your device settings to ensure you have a working internet connection.", fromView: self.view, successHandler:  { json, response in
             //print("JSON IS : \(json)")
-            if response?.statusCode == 200 {
-                if let result = json as? String {
+            //if response?.statusCode == 200 {
+                if let result = json as? Dictionary<String , String> {
                     print(result)
                 }
-            }
+           // }
             
         }, failureHandler: { response, error in
             print("ERROR IS : \(error)")
-        })*/
+        })
     }
 
 
