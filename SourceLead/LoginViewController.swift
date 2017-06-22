@@ -47,10 +47,6 @@ class LoginViewController: UIViewController,GIDSignInUIDelegate, GIDSignInDelega
         userIdTextField.textFieldLeftImage(imageNamed:"user.png")
         passwordTextField.textFieldLeftImage(imageNamed:"pass.png")
         
-//        textFieldUserImage(imageView: txtImgView,imgname: "user.png",tfield: userIdTextField, userIdTextField.frame.size.height)
-//        textFieldUserImage(txt: passImgView,imgname: "pass.png",tfield: passwordTextField, userIdTextField.frame.size.height)
-        
-         //error object
         var error : NSError?
         
         //setting the error

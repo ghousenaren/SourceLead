@@ -61,9 +61,9 @@ extension ForgotViewController {
         }
         let headers : [String : AnyObject] = ["Content-Type" : "application/json" as AnyObject]
         WebServices.sharedInstance.performApiCallWithURLString(urlString: url, methodName: "POST", headers: headers, parameters: nil, httpBody: data, withMessage: "Reseting Password...", alertMessage: "Please check your device settings to ensure you have a working internet connection.", fromView: self.view, successHandler:  {[weak self] json, response in
-                if let result = json as? Dictionary<String , String> {
+                if let result = json as? Dictionary<String , AnyObject> {
                     print(result)
-                    if result["status"] == "valid" {
+                    if let resultStatus = result["status"] as? String, resultStatus == "valid" {
                          self?.showAlertMessage(title : "Success" , message: "Will Send you Verification code shortly.")
                     }else {
                         self?.showAlertMessage(title : "Problem" , message: "Email is not register with us.")
