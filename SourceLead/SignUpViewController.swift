@@ -18,9 +18,22 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var lastName: UITextField!
     @IBOutlet weak var email: UITextField!
     
+    @IBOutlet weak var countryDrop: DropMenuButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        firstName.textFieldLeftImage(imageNamed:"user.png")
+        lastName.textFieldLeftImage(imageNamed:"user.png")
+        email.textFieldLeftImage(imageNamed:"mail")
+        
         // Do any additional setup after loading the view.
+        countryDrop.initMenu(["Australia", "India", "US","ScotLand"], actions: [({ () -> (Void) in
+            print("Estou fazendo a ação A")
+        }), ({ () -> (Void) in
+            print("Estou fazendo a ação B")
+        }), ({ () -> (Void) in
+            print("Estou fazendo a ação C")
+        })])
+
     }
 
     @IBAction func signUp(_ sender: Any) {
