@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2BY-t7-4Eo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2BY-t7-4Eo">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -653,11 +653,12 @@
                     <connections>
                         <outlet property="passwordTextField" destination="Peo-on-Idx" id="EhW-B7-NZW"/>
                         <outlet property="userIdTextField" destination="NGD-ph-d57" id="tVC-zc-cEA"/>
+                        <segue destination="nCN-4c-bZr" kind="show" identifier="logintodashboard" id="aHa-Ye-f5J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lgc-54-pbi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-743.20000000000005" y="37.331334332833585"/>
+            <point key="canvasLocation" x="-572" y="116"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="ufp-Mp-fYV">
@@ -959,12 +960,12 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hFY-02-l8w" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="kk4-RJ-JAr" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="38" y="394"/>
+            <point key="canvasLocation" x="386" y="489"/>
         </scene>
         <!--Dashboard-->
         <scene sceneID="axa-3U-RV6">
             <objects>
-                <viewController id="nCN-4c-bZr" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DashboardViewController" id="nCN-4c-bZr" customClass="DashboardViewController" customModule="SourceLead" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zTm-Ss-QTe"/>
                         <viewControllerLayoutGuide type="bottom" id="zXw-mg-sZ8"/>
@@ -1153,7 +1154,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fiH-9C-SzU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1958" y="38"/>
+            <point key="canvasLocation" x="2010" y="-177"/>
         </scene>
         <!--Reset Password View Controller-->
         <scene sceneID="RES-SF-I6e">
@@ -1307,6 +1308,7 @@
                         <outlet property="conformPassword" destination="eC4-gr-AE4" id="MVh-jO-wZM"/>
                         <outlet property="password" destination="nzx-6v-Dyc" id="31K-sm-Ou6"/>
                         <outlet property="validationCode" destination="47J-wf-BpY" id="LhS-cb-ZdJ"/>
+                        <segue destination="f8l-KC-CQ6" kind="show" identifier="loginSegue" id="IDL-8K-8ob"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qd6-IL-C3v" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1348,7 +1350,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VdW-vn-SJI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1057" y="37"/>
+            <point key="canvasLocation" x="1086" y="412"/>
         </scene>
     </scenes>
     <resources>
@@ -1366,4 +1368,8 @@
         <image name="users" width="150" height="150"/>
         <image name="welcome 1080-1920" width="1080" height="1920"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="IDL-8K-8ob"/>
+        <segue reference="aHa-Ye-f5J"/>
+    </inferredMetricsTieBreakers>
 </document>

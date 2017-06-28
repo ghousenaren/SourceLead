@@ -18,7 +18,7 @@ class Welcome: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        imgGif.loadGif(name: "firew11")
+        imgGif.loadGif(name: "ic_launcher")
 
     }
 

@@ -20,6 +20,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Initialize sign-in
+        let token = UserDefaults.standard.object(forKey: "TOKEN")
+        print("------------------Token----------------",token)
+        if token != nil {
+            let homeVC = UIStoryboard(name: "Main", bundle:nil).instantiateViewController(withIdentifier: "DashboardViewController") as! DashboardViewController
+            
+            let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
+            DispatchQueue.main.async{
+                appDelegate.window?.rootViewController = homeVC
+            }
+       }
         
         IQKeyboardManager.shared().isEnabled = true
         UINavigationBar.appearance().barTintColor = UIColor(red: 22.0/255.0, green: 111.0/255.0, blue: 192.0/255.0, alpha: 1.0)

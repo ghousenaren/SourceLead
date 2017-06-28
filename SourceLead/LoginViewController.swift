@@ -21,7 +21,7 @@ class LoginViewController: UIViewController,GIDSignInUIDelegate, GIDSignInDelega
     @IBOutlet weak var passImgView: UIImageView!
 
     @IBAction func loginAction(_ sender: Any) {
-        loginAPICall()
+      loginAPI()
         /*guard (userIdTextField.text?.characters.count)!>2 else {
             showAlertMessage(message: "Username can't be empty")
             return
@@ -72,23 +72,16 @@ class LoginViewController: UIViewController,GIDSignInUIDelegate, GIDSignInDelega
         print(user.profile.email);
     }
     
-    func showAlertMessage(message : String) -> Void {
-            let alert = UIAlertController(title: "SourceLead", message: message, preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
-            alert.addAction(okAction)
-            DispatchQueue.main.async{ [weak self] in
-                
-                
-                if self?.presentedViewController == nil {
-                    self?.present(alert, animated: true, completion: nil)
-                }
-                else {
-                    self?.dismiss(animated: false, completion: nil)
-                   // self?.present(alert, animated: true, completion: nil)
-                    self?.present(alert, animated: true, completion: nil)
-                }
-            }
+    func showAlertMessage(title : String, message : String) -> Void {
+        DispatchQueue.main.async{ [weak self] in
+            let alert = Global.showAlertWithTitle(title: title, okTitle: "Ok", cancelTitle: "", message: message, isCancel: false, okHandler: {action in
+              
+                return
+            })
+            self?.present(alert, animated: true, completion: nil)
         }
+    }
+
     
 
 
@@ -110,29 +103,48 @@ class LoginViewController: UIViewController,GIDSignInUIDelegate, GIDSignInDelega
 }
 
 extension LoginViewController {
- //to get member details form server
-    //let uid = UserData.value(forKey: UserStorage.user_id) as? String
-    //let access_token = UserData.value(forKey: UserStorage.access_token) as? String
-    //let auth_token = "Bearer " + access_token!
-    //let url = BASE_URL + "api/member?Uid=" + uid! //build url
-    func loginAPICall() {
-        let jsonPostString = "email" + userIdTextField.text! + "&password" + passwordTextField.text!
-        let jsonData = jsonPostString.data(using: String.Encoding.utf8)
-        let url = "http://192.168.1.48:8080/sourcelead/resetPasswordWithUserName"
-        let headers : [String : AnyObject] = ["Content-Type" : "application/json" as AnyObject , "Authorization" : "" as AnyObject]
-        WebServices.sharedInstance.performApiCallWithURLString(urlString: url, methodName: "POST", headers: headers, parameters: nil, httpBody: jsonData, withMessage: "Getting Member Details...", alertMessage: "Please check your device settings to ensure you have a working internet connection.", fromView: self.view, successHandler:  { json, response in
-            //print("JSON IS : \(json)")
-            if response?.statusCode == 200 {
-                if let result = json as? String {
-                    print(result)
-                }
-            }
+    func loginAPI() {
+        let parameter : [String : String] = [
+            "username" : userIdTextField.text!,
+            "password":passwordTextField.text!
+            ]
+        let url = BASE_URL +  "restAuthenticate"
+        var data : Data
+        do {
+            data = try JSONSerialization.data(withJSONObject:parameter, options:[])
             
-        }, failureHandler: { response, error in
-            //print("ERROR IS : \(error)")
+        }catch {
+            print("JSON serialization failed:  \(error)")
+            showAlertMessage(title: "Error", message: "Error in sending data")
+            return
+        }
+        let headers : [String : AnyObject] = ["Content-Type" : "application/json" as AnyObject]
+        WebServices.sharedInstance.performApiCallWithURLString(urlString: url, methodName: "POST", headers: headers, parameters: nil, httpBody: data, withMessage: "Reseting Password...", alertMessage: "Please check your device settings to ensure you have a working internet connection.", fromView: self.view, successHandler:  {[weak self] json, response in
+            if let result = json as? Dictionary<String , AnyObject> {
+                print(result)
+                if let token = result["loginResponse"] as? String, token == "token" {
+                    
+                    UserDefaults.standard.setValue(token, forKey: "TOKEN")
+                    self?.performSegue(withIdentifier: "logintodashboard", sender: nil)
+
+                    
+//                    let homeVC = UIStoryboard(name: "Main", bundle:nil).instantiateViewController(withIdentifier: "DashboardViewController") as! DashboardViewController
+//                    
+//                    let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
+//                    DispatchQueue.main.async{
+//                        appDelegate.window?.rootViewController = homeVC
+//                    }
+
+                }else {
+                    self?.showAlertMessage(title : "Problem" , message: "Email is not register with us.")
+                }
+            }else {
+                self?.showAlertMessage(title : "Problem" , message: "Issue in API Response.")
+            }
+            }, failureHandler: { response, error in
+                //print("ERROR IS : \(error)")
         })
-    }
-}
+    }}
 
 
 /*extension LoginViewController {
